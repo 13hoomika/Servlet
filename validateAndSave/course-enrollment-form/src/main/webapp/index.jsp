@@ -15,7 +15,7 @@
         }
 
         form {
-            background: #fff;
+            background: #fbefcc;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -39,15 +39,12 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #e0876a;
             color: #fff;
             border: none;
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #0056b3;
-        }
       </style>
 </head>
 <body>

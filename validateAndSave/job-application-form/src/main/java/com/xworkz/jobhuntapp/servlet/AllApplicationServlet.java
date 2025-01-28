@@ -5,6 +5,7 @@ import com.xworkz.jobhuntapp.service.ApplicationService;
 import com.xworkz.jobhuntapp.service.ApplicationServiceImpl;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +40,13 @@ public class AllApplicationServlet extends HttpServlet {
 
         service.ValidateAndStore(applicationDto);
 
-        PrintWriter writer = resp.getWriter();
-        writer.write("Thank you "+fullName + " for applying for "+position);
-        System.out.println("doPost ended");
+//        PrintWriter writer = resp.getWriter();
+//        writer.write("Thank you "+fullName + " for applying for "+position);
+//        System.out.println("doPost ended");
+
+        req.setAttribute("name",fullName);
+        req.setAttribute("pos",position);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("response.jsp");
+        dispatcher.forward(req,resp);
     }
 }

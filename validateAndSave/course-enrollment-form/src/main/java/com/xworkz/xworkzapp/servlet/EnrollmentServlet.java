@@ -4,6 +4,7 @@ import com.xworkz.xworkzapp.dto.EnrollmentDto;
 import com.xworkz.xworkzapp.service.EnrollmentService;
 import com.xworkz.xworkzapp.service.EnrollmentServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +39,11 @@ public class EnrollmentServlet extends HttpServlet {
 
         service.validateAndPersist(dto);
 
-        PrintWriter writer = resp.getWriter();
-        writer.write("Course enrolled for "+ courseName);
+//        PrintWriter writer = resp.getWriter();
+//        writer.write("Course enrolled for "+ courseName);
+        req.setAttribute("name",name);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("response.jsp");
+        dispatcher.forward(req,resp);
+
     }
 }

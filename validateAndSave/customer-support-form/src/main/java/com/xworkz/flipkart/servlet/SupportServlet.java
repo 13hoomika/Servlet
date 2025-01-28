@@ -4,6 +4,7 @@ import com.xworkz.flipkart.dto.SupportDto;
 import com.xworkz.flipkart.service.SupportService;
 import com.xworkz.flipkart.service.SupportServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,11 @@ public class SupportServlet extends HttpServlet {
 
         service.validateAndSave(dto);
 
-        PrintWriter writer = resp.getWriter();
-        writer.write( "Issue for order id "+ orderId +" is received we will get back to you soon");
+//        PrintWriter writer = resp.getWriter();
+//        writer.write( "Issue for order id "+ orderId +" is received we will get back to you soon");
+
+        req.setAttribute("order",orderId);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("response.jsp");
+        dispatcher.forward(req,resp);
     }
 }

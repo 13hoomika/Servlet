@@ -11,7 +11,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f5f5f5;
+            background-color: #E2E0C8;
         }
 
         form {
@@ -39,7 +39,7 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #5C7285;
             color: #fff;
             border: none;
             cursor: pointer;

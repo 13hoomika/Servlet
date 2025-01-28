@@ -4,6 +4,7 @@ import com.xworkz.amazon.dto.CheckoutDto;
 import com.xworkz.amazon.service.CheckoutService;
 import com.xworkz.amazon.service.CheckoutServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +36,12 @@ public class CheckOutServlet extends HttpServlet {
         checkoutDto.setPaymentMethod(paymentMethod);
         checkoutDto.setOrderNotes(orderNotes);
 
-        checkoutService.validateAndStore(checkoutDto);
-        PrintWriter writer = resp.getWriter();
-        writer.write(fullName + ", your order has been confirmed.");
+//        checkoutService.validateAndStore(checkoutDto);
+//        PrintWriter writer = resp.getWriter();
+//        writer.write(fullName + ", your order has been confirmed.");
+
+        req.setAttribute("fName",fullName);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("response.jsp");
+        dispatcher.forward(req,resp);
     }
 }

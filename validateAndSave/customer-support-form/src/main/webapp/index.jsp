@@ -11,7 +11,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f5f5f5;
+            background-color: #d6d4e0;
         }
 
         form {
@@ -39,15 +39,12 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #622569;
             color: #fff;
             border: none;
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #0056b3;
-        }
       </style>
 </head>
 <body>
